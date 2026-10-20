@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cinnamon — Authentic Indian Cuisine</title>
+  <title>Cinnamon Indian Catering | Apex, NC</title>
+  <meta name="description" content="Cinnamon Indian Catering at 1015 Davis Dr, Apex, NC. Dine-in, curbside pickup and delivery. Open Tuesday–Sunday, 11 AM–8 PM. Call (919) 771-7932 for catering inquiries." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
@@ -62,6 +63,7 @@
     }
     .nav-logo {
       font-family: 'Playfair Display', serif;
+      font-style: italic;
       font-size: 1.7rem;
       font-weight: 700;
       color: var(--orange);
@@ -484,7 +486,9 @@
       padding: 2rem 2.2rem;
       box-shadow: 0 4px 20px rgba(26,18,8,0.07);
       min-width: calc((100% - 3rem) / 3);
+      max-width: calc((100% - 3rem) / 3);
       flex-shrink: 0;
+      overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .review-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(26,18,8,0.12); }
@@ -495,6 +499,8 @@
       color: var(--text);
       font-style: italic;
       margin-bottom: 1.4rem;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
     .reviewer { display: flex; align-items: center; gap: 0.8rem; }
     .reviewer-avatar {
@@ -520,13 +526,13 @@
     }
     .dot {
       width: 8px; height: 8px;
-      border-radius: 50%;
+      border-radius: 4px;
       background: rgba(217,95,43,0.3);
       cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.25s, width 0.3s;
       border: none;
     }
-    .dot.active { background: var(--orange); transform: scale(1.3); }
+    .dot.active { background: var(--orange); width: 26px; }
 
     /* ── Contact / Catering ───────────────────────────────────── */
     #contact {
@@ -686,6 +692,66 @@
     }
     .footer-bottom a { color: var(--gold); }
 
+    /* ── Menu PDF Reader ─────────────────────────────────────────── */
+    .menu-pdf-wrap {
+      max-width: 900px;
+      margin: 3.5rem auto 2.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(26,18,8,0.13);
+      border: 1.5px solid #EDE0D4;
+    }
+    .menu-pdf-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.8rem;
+      background: var(--cream);
+      border-bottom: 1.5px solid #EDE0D4;
+      gap: 1rem;
+    }
+    .menu-pdf-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    .menu-pdf-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--orange);
+      color: #fff;
+      padding: 0.55rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    .menu-pdf-download:hover { background: var(--orange-dark); transform: translateY(-1px); }
+    .menu-pdf-frame {
+      width: 100%;
+      height: 680px;
+      background: #f5f0eb;
+    }
+    .menu-pdf-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .menu-pdf-frame { height: 480px; }
+      .menu-pdf-header { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .menu-pdf-frame { height: 380px; }
+    }
+
     /* ── Gallery ────────────────────────────────────────────────── */
     #gallery {
       background: var(--charcoal);
@@ -810,6 +876,7 @@
     @media (max-width: 768px) {
       :root { --nav-h: 60px; }
       .nav-links { display: none; }
+      .btn-order { margin-left: auto; padding: 0.45rem 1rem; font-size: 0.78rem; }
       #story, #menu, #reviews { padding: 70px 5%; }
       .review-card { min-width: 85vw; }
       #contact { grid-template-columns: 1fr; }
@@ -820,6 +887,7 @@
       .form-row { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
+      .btn-order { display: none; }
       .menu-grid { grid-template-columns: 1fr; }
       .story-features { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
@@ -835,11 +903,11 @@
     <ul class="nav-links">
       <li><a href="#story">About</a></li>
       <li><a href="#menu">Menu</a></li>
-      <li><a href="#reviews">Reviews</a></li>
       <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#menu" class="btn-order">Order Now</a>
+    <a href="https://cinnamon-live.web.app/" target="_blank" rel="noopener" class="btn-order">Order Now</a>
   </nav>
 
   <!-- ────────────────── HERO ────────────────── -->
@@ -847,11 +915,11 @@
     <div class="hero-bg"></div>
     <div class="hero-pattern"></div>
     <div class="hero-content">
-      <span class="hero-badge">Authentic Indian Flavors</span>
+      <span class="hero-badge">Cinnamon Indian Catering · Apex, NC</span>
       <h1 class="hero-headline">Taste the <em>Soul</em><br>of India</h1>
-      <p class="hero-sub">From fragrant biryanis to slow-cooked curries — every dish tells a story of tradition, spice, and love.</p>
+      <p class="hero-sub">Indian flavors for your table and your next gathering. Visit us in Apex, or enjoy curbside pickup and delivery.</p>
       <div class="hero-btns">
-        <a href="#menu" class="btn-primary">Order Now</a>
+        <a href="https://cinnamon-live.web.app/" target="_blank" rel="noopener" class="btn-primary">Order Now</a>
         <a href="#menu" class="btn-outline">View Menu</a>
       </div>
     </div>
@@ -874,8 +942,8 @@
           loading="lazy"
         />
         <div class="story-stat">
-          <strong>20+</strong>
-          <span>Years of<br>Excellence</span>
+          <strong>Apex</strong>
+          <span>North<br>Carolina</span>
         </div>
       </div>
 
@@ -883,31 +951,31 @@
         <span class="story-tag">Our Story</span>
         <h2 class="section-headline">A Culinary Journey<br>Through <em>India</em></h2>
         <p class="story-body">
-          Founded in 2004, Cinnamon was born from a passion for sharing the rich, diverse flavors of the Indian subcontinent. Our chefs bring decades of expertise, sourcing hand-picked spices straight from family farms in Kerala, Rajasthan, and Punjab.
+          Cinnamon Indian Catering brings Indian cuisine to Apex, North Carolina. From family meals to special gatherings, explore our menu and get in touch to discuss your catering needs.
         </p>
         <p class="story-body">
-          Every meal is a celebration — prepared fresh daily with no shortcuts, no compromises, just the honest warmth of Indian hospitality at your table.
+          Find us at 1015 Davis Dr for dine-in, curbside pickup, or delivery. Call us to plan an order or ask about catering for your event.
         </p>
         <div class="story-features">
           <div class="story-feat">
             <div class="feat-icon">🌿</div>
             <div class="feat-text">
               <strong>Authentic Recipes</strong>
-              <span>Heirloom spice blends &amp; generational techniques</span>
+              <span>Explore the flavors of Indian cuisine</span>
             </div>
           </div>
           <div class="story-feat">
             <div class="feat-icon">🥬</div>
             <div class="feat-text">
-              <strong>Fresh Ingredients</strong>
-              <span>Locally sourced produce, imported spices daily</span>
+              <strong>For Your Table</strong>
+              <span>Food for family meals and gatherings</span>
             </div>
           </div>
           <div class="story-feat">
             <div class="feat-icon">👨‍🍳</div>
             <div class="feat-text">
-              <strong>Master Chefs</strong>
-              <span>Trained across regional Indian culinary schools</span>
+              <strong>Dine-in &amp; Pickup</strong>
+              <span>Dine-in, curbside pickup &amp; delivery</span>
             </div>
           </div>
           <div class="story-feat">
@@ -986,7 +1054,7 @@
       <div class="menu-card reveal" style="transition-delay:0.3s">
         <div class="menu-card-img">
           <img
-            src="https://images.unsplash.com/photo-1626100191740-cf19b8de0f01?w=600&q=80&auto=format&fit=crop"
+            src="https://images.pexels.com/photos/30203311/pexels-photo-30203311.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
             alt="Garlic Naan"
             loading="lazy"
           />
@@ -1000,79 +1068,29 @@
       </div>
 
     </div>
-    <div class="menu-cta reveal">
-      <a href="#contact" class="btn-filled">View Full Menu &amp; Order Online</a>
+    <!-- PDF Menu Reader -->
+    <div class="menu-pdf-wrap reveal">
+      <div class="menu-pdf-header">
+        <div>
+          <span class="section-tag" style="display:inline-block;margin-bottom:0.4rem;">Full Menu</span>
+          <h3 class="menu-pdf-title">Browse Our Complete Menu</h3>
+        </div>
+        <a href="cinnamon-menu.pdf" download class="menu-pdf-download" aria-label="Download menu PDF">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
+      </div>
+      <div class="menu-pdf-frame">
+        <iframe
+          src="cinnamon-menu.pdf"
+          title="Cinnamon Indian Catering Full Menu"
+          aria-label="Scrollable PDF menu viewer"
+        ></iframe>
+      </div>
     </div>
-  </section>
 
-  <!-- ────────────────── REVIEWS ────────────────── -->
-  <section id="reviews">
-    <div class="reviews-inner">
-      <div class="reviews-header reveal">
-        <div class="rating-line">
-          <span class="stars">★★★★★</span>
-          <span class="rating-num">4.8</span>
-          <span class="rating-label">/ 5 · Based on 400+ reviews</span>
-        </div>
-        <span class="section-tag">What Our Guests Say</span>
-        <h2 class="section-headline">Stories from Our Table</h2>
-      </div>
-
-      <div class="carousel-container reveal">
-        <div class="carousel-track" id="carouselTrack">
-
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">"The Chicken Tikka Masala was absolutely divine — rich, aromatic, and comforting. The naan was pillowy perfection. We've been coming every Friday for two years and it never disappoints."</p>
-            <div class="reviewer">
-              <div class="reviewer-avatar">SM</div>
-              <div>
-                <div class="reviewer-name">Sarah Mitchell</div>
-                <div class="reviewer-date">Google Reviews · January 2025</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">"We hired Cinnamon for our wedding reception — 200 guests, flawless execution. The lamb vindaloo and biryani stations were the talk of the night. Truly world-class catering."</p>
-            <div class="reviewer">
-              <div class="reviewer-avatar" style="background:#7B68EE">RK</div>
-              <div>
-                <div class="reviewer-name">Raj & Kavya Patel</div>
-                <div class="reviewer-date">Yelp · October 2024</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">"As someone who grew up in Mumbai, I'm very particular about authentic Indian food in the US. Cinnamon is the real deal. The spice blends are spot-on — tastes exactly like home."</p>
-            <div class="reviewer">
-              <div class="reviewer-avatar" style="background:var(--gold);color:var(--charcoal)">AP</div>
-              <div>
-                <div class="reviewer-name">Anita Priya</div>
-                <div class="reviewer-date">TripAdvisor · December 2024</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-stars">★★★★☆</div>
-            <p class="review-text">"Outstanding flavors and generous portions. The samosa chaat is a must-order — tangy, fresh, and perfectly balanced. Service was warm and attentive throughout."</p>
-            <div class="reviewer">
-              <div class="reviewer-avatar" style="background:#2ECC71">JT</div>
-              <div>
-                <div class="reviewer-name">James Thompson</div>
-                <div class="reviewer-date">Google Reviews · February 2025</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="carousel-dots" id="carouselDots"></div>
-      </div>
-
+    <div class="menu-cta reveal">
+      <a href="https://cinnamon-live.web.app/" target="_blank" rel="noopener" class="btn-filled">Order Online on Cinnamon App</a>
     </div>
   </section>
 
@@ -1181,34 +1199,87 @@
     </div>
   </section>
 
+  <!-- ────────────────── REVIEWS ────────────────── -->
+  <section id="reviews">
+    <div class="reviews-inner">
+      <div class="reviews-header reveal">
+        <div class="rating-line">
+          <span class="stars">★★★★★</span>
+          <span class="rating-num">5.0</span>
+          <span class="rating-label">/ 5 · 43 Google reviews</span>
+        </div>
+        <p class="rating-label" style="margin-bottom:1rem">Checked October 20, 2026 · <a href="https://www.google.com/maps?cid=10134821393846987285" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">Read reviews on Google Maps ↗</a></p>
+        <span class="section-tag">What Our Guests Say</span>
+        <h2 class="section-headline">Stories from Our Table</h2>
+      </div>
+
+      <div class="carousel-container reveal">
+        <div class="carousel-track" id="carouselTrack">
+
+          <div class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="review-text">Enjoyed fresh, flavorful family orders and especially praised the fish.</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">SG</div>
+              <div><div class="reviewer-name">Saba Groves</div>
+                <div class="reviewer-date">Google review · Summary</div></div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="review-text">Praised the butter chicken, biryani and naan after visiting with a friend.</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">EC</div>
+              <div><div class="reviewer-name">Ezra Cohen</div>
+                <div class="reviewer-date">Google review · Summary</div></div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="review-text">Shared a positive experience ordering catering for a housewarming ceremony.</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">SP</div>
+              <div><div class="reviewer-name">Sheetal Patil</div>
+                <div class="reviewer-date">Google review · Summary</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ────────────────── CONTACT / CATERING ────────────────── -->
   <section id="contact">
     <div class="contact-info">
       <span class="section-tag">Find Us</span>
-      <h2 class="section-headline">Visit Us or<br>Book <em>Catering</em></h2>
+      <h2 class="section-headline">Visit Us or<br>Book Catering</h2>
       <div class="contact-details">
         <div class="contact-item">
           <div class="contact-icon">📍</div>
           <div>
             <div class="contact-item-label">Address</div>
-            <div class="contact-item-value">123 Spice Lane, Bloomfield<br>New Jersey, NJ 07003</div>
+            <div class="contact-item-value"><a href="https://www.google.com/maps?cid=10134821393846987285" target="_blank" rel="noopener noreferrer">1015 Davis Dr<br>Apex, NC 27523 ↗</a></div>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📞</div>
           <div>
             <div class="contact-item-label">Phone</div>
-            <div class="contact-item-value">(973) 734-0040</div>
+            <div class="contact-item-value"><a href="tel:+19197717932">(919) 771-7932</a></div>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">🕐</div>
           <div>
             <div class="contact-item-label">Hours</div>
-            <div class="contact-item-value">Mon – Thu: 11am – 9:30pm</div>
+            <div class="contact-item-value">Tuesday – Sunday: 11 AM – 8 PM</div>
             <hr class="contact-divider"/>
-            <div class="contact-item-sub">Fri – Sat: 11am – 10:30pm</div>
-            <div class="contact-item-sub">Sunday: 12pm – 9pm</div>
+            <div class="contact-item-sub">Monday: Closed</div>
+            <div class="contact-item-sub"><a href="https://www.google.com/maps?cid=10134821393846987285" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">Check hours &amp; get directions ↗</a></div>
           </div>
         </div>
       </div>
@@ -1216,7 +1287,7 @@
 
     <div class="contact-form-panel">
       <h3 class="form-title">Send Us a Message</h3>
-      <p class="form-sub">Questions, reservations, or catering inquiries — we'd love to hear from you.</p>
+      <p class="form-sub">Questions, orders, or catering inquiries — we'd love to hear from you.</p>
       <form id="contactForm" novalidate>
         <div class="form-row">
           <div class="form-group" id="fg-name">
@@ -1253,7 +1324,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-logo">Cinnamon</div>
-        <p class="footer-tagline">Bringing the warmth and richness of authentic Indian cuisine to your table since 2004.</p>
+        <p class="footer-tagline">Indian cuisine and catering in Apex, North Carolina. Dine-in, curbside pickup and delivery.</p>
       </div>
       <div>
         <div class="footer-col-title">Quick Links</div>
@@ -1271,7 +1342,7 @@
           <a href="#" class="social-icon" aria-label="Facebook">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
           </a>
-          <a href="#" class="social-icon" aria-label="Instagram">
+          <a href="https://www.instagram.com/cinnamonindiancatering/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
           <a href="#" class="social-icon" aria-label="Twitter/X">
@@ -1288,7 +1359,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Cinnamon Restaurant. All rights reserved.</span>
+      <span>© 2026 Cinnamon Indian Catering. All rights reserved.</span>
       <span>
         <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
         <a href="#">Terms of Service</a>
@@ -1417,7 +1488,7 @@
         gDotsWrap.children[gCurrent].classList.add('active');
         const activeThumb = gThumbsWrap.children[gCurrent];
         activeThumb.classList.add('active');
-        activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        gThumbsWrap.scrollLeft = activeThumb.offsetLeft - (gThumbsWrap.offsetWidth - activeThumb.offsetWidth) / 2;
       }
 
       function startGAuto() { gTimer = setInterval(() => gGoTo(gCurrent + 1), 4200); }
